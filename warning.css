@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #ffdde9, #ffc7f1);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.warning-container {
+  position: relative;
+}
+
+.warning-box {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 30px 40px;
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 0 40px rgba(255, 80, 150, 0.2);
+  animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.alert-label {
+  font-size: 13px;
+  color: #ff2f7a;
+  font-weight: 700;
+  border: 2px solid #ff2f7a;
+  padding: 4px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 12px;
+  animation: flicker 1.3s infinite;
+}
+
+@keyframes flicker {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.title {
+  margin: 0;
+  color: #d70066;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.message {
+  font-size: 18px;
+  color: #7a0044;
+  line-height: 1.4;
+}
+
+.message .danger {
+  color: #ff004c;
+  font-weight: 700;
+}
+
+.sub-text {
+  margin-top: 14px;
+  color: #b3006a;
+  font-size: 14px;
+}
+
+.ack-btn {
+  margin-top: 18px;
+  background: #ff2f94;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ack-btn:hover {
+  background: #ff0f78;
+  transform: translateY(-2px);
+}
+
+/* Sparkles */
+#sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 10px white;
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(-20px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.6; }
+}
