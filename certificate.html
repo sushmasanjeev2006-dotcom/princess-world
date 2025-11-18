@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Certificate — Princess Portal</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main style="max-width:900px;margin:40px auto;padding:18px;text-align:center">
+    <h1>Certificate</h1>
+    <p class="muted">If the certificate was generated from the game it will appear below. If not, return to the portal and generate it.</p>
+    <div id="certWrap" style="margin-top:18px">
+      <img id="certImg" style="max-width:100%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.08)" alt="Certificate image">
+    </div>
+    <div style="margin-top:12px">
+      <button id="saveBtn" class="btn primary">Save to Device</button>
+      <button id="backBtn" class="btn ghost">Back to Portal</button>
+    </div>
+  </main>
+
+<script>
+const img = document.getElementById('certImg');
+const data = localStorage.getItem('pr_certificate');
+if(data){
+  img.src = data;
+} else {
+  img.alt = 'No certificate found. Please generate it from the portal first.';
+}
+document.getElementById('saveBtn').addEventListener('click', ()=>{
+  if(!img.src) return alert('No certificate to save.');
+  const a = document.createElement('a'); a.href = img.src; a.download = 'Shub_princess_certificate.png'; a.click();
+});
+document.getElementById('backBtn').addEventListener('click', ()=> location.href = './index.html');
+</script>
+</body>
+</html>
