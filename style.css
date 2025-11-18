@@ -1,0 +1,37 @@
+/* style.css — premium pink portal, realistic look */
+:root{
+  --bg:#fff6fb; --accent:#ff3cae; --accent2:#ff7bd8; --muted:#6b3a56; --glass:rgba(255,255,255,0.75);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Poppins',sans-serif;background:linear-gradient(180deg,#fff7fb,#ffecf8);color:#35102a}
+.hidden{display:none}
+.particleCanvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+.entry{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:60;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,245,250,0.7))}
+.entryCard{max-width:760px;padding:28px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.9),#fff);box-shadow:0 40px 120px rgba(255,90,170,0.10);text-align:center;border:1px solid rgba(200,150,180,0.08)}
+.entryCard h1{font-size:28px;margin:6px 0;color:#662247}
+.entryCard p.sub{color:var(--muted);margin-bottom:16px}
+.entryActions{display:flex;gap:12px;justify-content:center;margin-bottom:8px}
+.btn{padding:10px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:white;box-shadow:0 8px 30px rgba(255,80,150,0.12)}
+.btn.ghost{background:transparent;border:1px solid rgba(150,90,140,0.08);color:var(--muted)}
+.muted{color:var(--muted);font-size:14px}
+.app{position:relative;z-index:10;max-width:1080px;margin:18px auto;padding:18px}
+.hud{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.brand{font-weight:700;color:#6d1542}
+.status{display:flex;gap:18px;color:var(--muted)}
+.stageWrap{display:block}
+.stageCard{background:linear-gradient(180deg,#fff,#fff8fb);padding:18px;border-radius:12px;box-shadow:0 10px 40px rgba(60,20,50,0.04);border:1px solid rgba(200,150,170,0.06);margin-bottom:14px}
+.gameArea{background:linear-gradient(180deg,#fff0fb,#fff6fb);border-radius:10px;padding:8px;border:1px solid rgba(180,120,160,0.06)}
+.coinCanvas{width:100%;height:220px;display:block;background:linear-gradient(180deg,#fff8fb,#fff0fb);border-radius:8px}
+.controlsRow{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.timer{font-weight:700;color:#6a1d48}
+.missionArea{display:flex;flex-direction:column;gap:12px}
+.missionBox{padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff6fb);border:1px solid rgba(200,150,170,0.06)}
+.choiceBtn{padding:10px 12px;border-radius:10px;background:#fff;border:1px solid rgba(200,140,160,0.08);cursor:pointer}
+.previewCert{max-width:100%}
+.appFooter{text-align:center;color:var(--muted);margin-top:12px;font-size:13px}
+
+/* modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.36);z-index:120}
+.modalCard{background:#fff;padding:18px;border-radius:10px;max-width:360px;text-align:center}
+#qrLarge canvas{display:block;margin:auto}
