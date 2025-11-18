@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Princess Portal — Shub (Game)</title>
+<link rel="stylesheet" href="style.css">
+<!-- QR lib + jsPDF (for optional booklet) -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs2@0.0.2/qrcode.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+</head>
+<body>
+  <!-- Particle canvas -->
+  <canvas id="particleCanvas" class="particleCanvas" aria-hidden="true"></canvas>
+
+  <!-- ENTRY OVERLAY -->
+  <div id="entry" class="entry">
+    <div class="entryCard">
+      <h1>Welcome, <span id="playerNameDisplay">Shub</span></h1>
+      <p class="sub">Tap to step through the portal — Princess Day awaits. <strong>No quiz shown yet.</strong></p>
+      <div class="entryActions">
+        <button id="enterBtn" class="btn primary">Enter Portal</button>
+        <button id="viewQR" class="btn ghost">Show Page QR</button>
+      </div>
+      <small class="muted">Best experienced on mobile. You can scan the QR to open on your phone.</small>
+    </div>
+  </div>
+
+  <!-- APP (single page game) -->
+  <main id="app" class="app hidden" role="main">
+    <!-- HUD -->
+    <header class="hud">
+      <div class="brand">Princess Portal — <span class="small">Shub's Quest</span></div>
+      <div class="status">
+        <div class="coins">Coins: <span id="coinCount">0</span></div>
+        <div class="stage">Stage: <span id="stageLabel">0</span></div>
+      </div>
+    </header>
+
+    <!-- STAGE CONTAINER -->
+    <section class="stageWrap">
+      <!-- Stage 1: coin mini-game -->
+      <article id="stage1" class="stageCard hidden">
+        <h2>Stage 1 — Coin Rush</h2>
+        <p class="muted">Tap the falling princess coins. Collect as many as you can in <strong>15 seconds</strong>.</p>
+        <div class="gameArea">
+          <canvas id="coinCanvas" class="coinCanvas" width="720" height="300" aria-label="Coin collection area"></canvas>
+        </div>
+        <div class="controlsRow">
+          <button id="startCoins" class="btn primary">Start Round</button>
+          <div class="timer">Time: <span id="timeLeft">15</span>s</div>
+        </div>
+      </article>
+
+      <!-- Stage 2: Missions (not direct quiz) -->
+      <article id="stage2" class="stageCard hidden">
+        <h2>Stage 2 — Friendship Missions</h2>
+        <p class="muted">Complete missions to earn unlock points and coins. Choose actions — each choice has flavor & coin reward.</p>
+        <div id="missionArea" class="missionArea"></div>
+        <div class="controlsRow">
+          <button id="nextMission" class="btn primary">Next Mission</button>
+          <button id="finishMissions" class="btn ghost">Skip to Results</button>
+        </div>
+      </article>
+
+      <!-- Stage 3: Finalize and generate certificate -->
+      <article id="stage3" class="stageCard hidden">
+        <h2>Final Stage — Seal the Friendship</h2>
+        <p class="muted">You’ll get a premium certificate. Make it official.</p>
+        <div class="finalPreview">
+          <canvas id="previewCert" width="900" height="600" style="max-width:100%"></canvas>
+        </div>
+        <div class="controlsRow">
+          <button id="generateCert" class="btn primary">Generate Certificate</button>
+          <button id="goToCertPage" class="btn ghost hidden">Open Certificate Page</button>
+        </div>
+      </article>
+
+      <!-- Stage 4: Outro -->
+      <article id="stage4" class="stageCard hidden">
+        <h2>Completed — The Realm Salutes You</h2>
+        <p class="muted">You completed the Friendship Quest. Share or replay.</p>
+        <div class="controlsRow">
+          <button id="replayBtn" class="btn primary">Play Again</button>
+          <button id="shareCertBtn" class="btn ghost">Open Certificate</button>
+        </div>
+      </article>
+    </section>
+
+    <footer class="appFooter">Made with refined glitter & gym-energy — send to Shub with love.</footer>
+  </main>
+
+  <!-- QR Modal -->
+  <div id="qrModal" class="modal hidden" role="dialog">
+    <div class="modalCard">
+      <h3>Open on Phone</h3>
+      <div id="qrLarge"></div>
+      <div style="margin-top:12px"><button id="closeQR" class="btn ghost">Close</button></div>
+    </div>
+  </div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
